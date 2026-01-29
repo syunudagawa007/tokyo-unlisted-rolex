@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Japan Watch Hunt | Rolex Exclusive Access</title>
+    <!-- Tailwind CSS (CDN) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'header': ['Cinzel', 'serif'],
+                        'body': ['Lato', 'sans-serif'],
+                    },
+                    colors: {
+                        'rolex-green': '#006039',
+                        'metal-gold': '#D4AF37',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { background-color: #0F172A; color: #E2E8F0; }
+        .glass-effect {
+            background: rgba(30, 41, 59, 0.7);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        /* カレンダー入力のダークモード対応 */
+        input[type="date"] {
+            color-scheme: dark;
+        }
+        input[type="date"]::-webkit-calendar-picker-indicator {
+            cursor: pointer;
+            filter: invert(1);
+            opacity: 0.6;
+        }
+        input[type="date"]::-webkit-calendar-picker-indicator:hover {
+            opacity: 1;
+        }
+    </style>
+</head>
+<body class="font-body antialiased selection:bg-rolex-green selection:text-white">
+
+    <!-- Header -->
+    <nav class="fixed w-full z-50 glass-effect">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <div class="flex-shrink-0">
+                    <span class="font-header text-2xl tracking-widest text-white">
+                        <span class="text-red-600">TOKYO</span>WATCH<span class="text-sky-500">HUNT</span>
+                    </span>
+                </div>
+                <div>
+                    <a href="#request" class="bg-white text-slate-900 px-4 py-2 rounded-sm text-sm font-bold uppercase tracking-wider hover:bg-sky-50 transition">Request Stock</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <div class="relative h-screen flex items-center justify-center">
+        <div class="absolute inset-0 z-0">
+            <!-- rolex_hero.jpg を配置してください -->
+            <img src="rolex_hero.jpg" alt="Luxury Rolex Background" class="w-full h-full object-cover opacity-60">
+            <div class="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/40 to-transparent"></div>
+        </div>
+
+        <div class="relative z-10 text-center px-4 max-w-3xl">
+            <p class="text-sky-400 tracking-[0.2em] text-sm mb-4 uppercase font-bold">Tokyo Exclusive Rolex Inventory</p>
+            <h1 class="font-header text-5xl md:text-7xl text-white mb-6 leading-tight">
+                Secure Your Rolex<br>in Tokyo.
+            </h1>
+            <p class="text-slate-300 text-lg md:text-xl mb-8 font-light">
+                Direct access to the world's most coveted timepieces.<br>
+                Daytona, Submariner, GMT-Master II. Available now.
+            </p>
+            <a href="#request" class="bg-sky-600 hover:bg-sky-700 text-white text-lg px-8 py-4 rounded-sm font-bold tracking-widest transition duration-300 shadow-[0_0_20px_rgba(2,132,199,0.5)]">
+                CHECK AVAILABILITY
+            </a>
+            <p class="mt-4 text-xs text-slate-400">Secondary market premium applies. Authentic guaranteed.</p>
+        </div>
+    </div>
+
+    <!-- Value Prop -->
+    <section class="py-20 bg-slate-900">
+        <div class="max-w-6xl mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-12 text-center">
+            <div class="p-6 border border-slate-800 rounded-lg">
+                <div class="text-sky-500 text-4xl mb-4">🔍</div>
+                <h3 class="font-header text-xl text-white mb-2">Curated Selection</h3>
+                <p class="text-slate-400 text-sm">We source only the finest examples from Tokyo's premier luxury watch network.</p>
+            </div>
+            <div class="p-6 border border-slate-800 rounded-lg">
+                <div class="text-sky-500 text-4xl mb-4">🛡️</div>
+                <h3 class="font-header text-xl text-white mb-2">Verified Authenticity</h3>
+                <p class="text-slate-400 text-sm">Every timepiece undergoes rigorous multi-point inspection by certified experts.</p>
+            </div>
+            <div class="p-6 border border-slate-800 rounded-lg">
+                <div class="text-sky-500 text-4xl mb-4">⚡</div>
+                <h3 class="font-header text-xl text-white mb-2">Priority Sourcing</h3>
+                <p class="text-slate-400 text-sm">Skip the years of waiting. We find your specific reference within days.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Request Form Section -->
+    <section id="request" class="py-20 bg-slate-950">
+        <div class="max-w-xl mx-auto px-4">
+            <div class="text-center mb-10">
+                <h2 class="font-header text-3xl text-white mb-4">Start Your Rolex Search</h2>
+                <p class="text-slate-400 text-sm">All fields are mandatory to ensure serious inquiries.<br><span class="text-sky-400">We do not deal with incomplete requests.</span></p>
+            </div>
+
+            <form action="https://formspree.io/f/mvzanyey" method="POST" class="space-y-6 glass-effect p-8 rounded-lg">
+                
+                <input type="hidden" name="_next" value="https://tokyounlisted.com/thanks.html" />
+                <input type="hidden" name="_subject" value="New Rolex Inquiry (High Priority)" />
+
+                <!-- 名前とWhatsApp -->
+                <div class="grid grid-cols-1 gap-6">
+                    <div>
+                        <label class="block text-xs uppercase tracking-wider text-slate-400 mb-1">Full Name <span class="text-red-500">*</span></label>
+                        <input type="text" name="name" required class="w-full bg-slate-800 border border-slate-700 text-white px-4 py-3 rounded focus:outline-none focus:border-sky-500 transition">
+                    </div>
+                    <div>
+                        <label class="block text-xs uppercase tracking-wider text-sky-400 mb-1 font-bold">WhatsApp Number <span class="text-red-500">*</span></label>
+                        <input type="text" name="whatsapp" placeholder="e.g. +1 234 567 8900" required class="w-full bg-slate-800 border border-slate-700 text-white px-4 py-3 rounded focus:outline-none focus:border-sky-500 transition">
+                    </div>
+                </div>
+
+                <!-- Email -->
+                <div>
+                    <label class="block text-xs uppercase tracking-wider text-slate-400 mb-1">Email Address <span class="text-red-500">*</span></label>
+                    <input type="email" name="email" required class="w-full bg-slate-800 border border-slate-700 text-white px-4 py-3 rounded focus:outline-none focus:border-sky-500 transition">
+                </div>
+
+                <!-- モデル -->
+                <div>
+                    <label class="block text-xs uppercase tracking-wider text-slate-400 mb-1">Rolex Model / Reference <span class="text-red-500">*</span></label>
+                    <input type="text" name="model" placeholder="e.g. Daytona 116500LN White Dial" required class="w-full bg-slate-800 border border-slate-700 text-white px-4 py-3 rounded focus:outline-none focus:border-sky-500 transition">
+                    <p class="text-[10px] text-slate-500 mt-2">
+                        *Please specify dial color (e.g. Black, Blue, Green) if applicable.
+                    </p>
+                </div>
+
+                <!-- 状態 -->
+                <div>
+                    <label class="block text-xs uppercase tracking-wider text-slate-400 mb-1">Condition <span class="text-red-500">*</span></label>
+                    <select name="condition" required class="w-full bg-slate-800 border border-slate-700 text-white px-4 py-3 rounded focus:outline-none focus:border-sky-500 transition">
+                        <option value="" disabled selected>Select Condition...</option>
+                        <option value="New">Unworn / New</option>
+                        <option value="Used - Excellent">Pre-owned (Mint)</option>
+                        <option value="Any">Any</option>
+                    </select>
+                </div>
+
+                <!-- 滞在期間 -->
+                <div class="grid grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-xs uppercase tracking-wider text-slate-400 mb-1">Arrival Date <span class="text-red-500">*</span></label>
+                        <input type="date" id="arrivalDate" name="arrival_date" required class="w-full bg-slate-800 border border-slate-700 text-white px-4 py-3 rounded focus:outline-none focus:border-sky-500 transition appearance-none">
+                    </div>
+                    <div>
+                        <label class="block text-xs uppercase tracking-wider text-red-400 mb-1 font-bold">Departure Date <span class="text-red-500">*</span></label>
+                        <input type="date" id="departureDate" name="departure_date" required class="w-full bg-slate-800 border border-slate-700 text-white px-4 py-3 rounded focus:outline-none focus:border-sky-500 transition appearance-none">
+                    </div>
+                </div>
+
+                <!-- 備考欄（新規追加） -->
+                <div>
+                    <label class="block text-xs uppercase tracking-wider text-slate-400 mb-1">
+                        Additional Requests <span class="text-[10px] font-normal text-slate-500">(Optional)</span>
+                    </label>
+                    <textarea name="notes" rows="2" placeholder="e.g. Jubilee bracelet preferred, specific year (2020+), etc." 
+                              class="w-full bg-slate-800 border border-slate-700 text-white px-4 py-3 rounded focus:outline-none focus:border-sky-500 transition"></textarea>
+                </div>
+
+                <!-- 予算 -->
+                <div class="pt-4 border-t border-slate-700">
+                    <label class="block text-xs uppercase tracking-wider text-sky-400 mb-1 font-bold">Max Budget (JPY) <span class="text-red-500">*</span></label>
+                    
+                    <input type="text" id="budgetInput" name="budget" inputmode="numeric" placeholder="e.g. 3,500,000" required 
+                           class="w-full bg-slate-900 border border-sky-900 text-white text-lg px-4 py-3 rounded focus:outline-none focus:border-sky-500 transition">
+                    
+                    <p id="budgetError" class="hidden text-red-400 text-[10px] mt-1 font-bold animate-pulse">
+                        ⚠ Please enter half-width numbers only (0-9).
+                    </p>
+
+                    <div id="currencyDisplay" class="text-sm text-sky-300 mt-2 font-mono text-right min-h-[20px]"></div>
+
+                    <p class="text-[10px] text-slate-400 mt-1 text-right">
+                        *Please enter the amount in <span class="text-white font-bold">Japanese Yen (JPY)</span>.<br>
+                        (Market price only. Not retail price.)
+                    </p>
+                </div>
+
+                <button type="submit" class="w-full bg-sky-600 hover:bg-sky-700 text-white font-bold py-4 rounded tracking-widest uppercase transition duration-300 shadow-lg">
+                    Find My Watch
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-slate-950 py-8 text-center border-t border-slate-900">
+        <p class="text-slate-600 text-xs">&copy; 2026 Japan Watch Hunt. All rights reserved.</p>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        // 日付制御
+        const arrivalInput = document.getElementById('arrivalDate');
+        const departureInput = document.getElementById('departureDate');
+        const today = new Date().toISOString().split('T')[0];
+
+        arrivalInput.setAttribute('min', today);
+        departureInput.setAttribute('min', today);
+
+        arrivalInput.addEventListener('change', function() {
+            departureInput.setAttribute('min', this.value);
+            if (departureInput.value && departureInput.value < this.value) {
+                departureInput.value = "";
+            }
+        });
+
+        // 予算入力制御
+        const budgetInput = document.getElementById('budgetInput');
+        const currencyDisplay = document.getElementById('currencyDisplay');
+        const budgetError = document.getElementById('budgetError');
+        const EXCHANGE_RATE = 152; 
+
+        budgetInput.addEventListener('input', function(e) {
+            let originalValue = e.target.value;
+            let normalizedValue = originalValue.replace(/[０-９]/g, function(s) {
+                return String.fromCharCode(s.charCodeAt(0) - 0xFEE0);
+            });
+
+            if (/[^0-9,]/.test(normalizedValue)) {
+                budgetError.classList.remove('hidden'); 
+            } else {
+                budgetError.classList.add('hidden');
+            }
+
+            let cleanValue = normalizedValue.replace(/[^0-9]/g, '');
+            
+            if (cleanValue) {
+                e.target.value = Number(cleanValue).toLocaleString();
+                let usdValue = Math.round(cleanValue / EXCHANGE_RATE).toLocaleString();
+                currencyDisplay.textContent = `¥${e.target.value} JPY ≈ $${usdValue} USD`;
+            } else {
+                if(originalValue === '') {
+                    e.target.value = "";
+                    currencyDisplay.textContent = "";
+                    budgetError.classList.add('hidden');
+                }
+            }
+        });
+    </script>
+
+</body>
+</html>

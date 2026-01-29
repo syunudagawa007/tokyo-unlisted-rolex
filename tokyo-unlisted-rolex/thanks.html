@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Request Received | Japan Watch Hunt</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'header': ['Cinzel', 'serif'],
+                        'body': ['Lato', 'sans-serif'],
+                    },
+                    colors: {
+                        'rolex-green': '#006039',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { background-color: #0F172A; color: #E2E8F0; }
+    </style>
+</head>
+<body class="font-body antialiased flex items-center justify-center h-screen px-4">
+
+    <div class="max-w-lg w-full text-center space-y-8 bg-slate-900/80 p-10 rounded-lg border border-slate-800 shadow-2xl backdrop-blur-sm">
+        
+        <!-- Icon -->
+        <div class="flex justify-center">
+            <div class="w-20 h-20 bg-sky-900/30 rounded-full flex items-center justify-center border border-sky-500/30">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-sky-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                </svg>
+            </div>
+        </div>
+
+        <!-- Message -->
+        <div>
+            <h1 class="font-header text-3xl text-white mb-4">Request Received</h1>
+            <p class="text-slate-400 text-lg leading-relaxed">
+                Thank you. We have received your inquiry.<br>
+                Our concierge is currently checking inventory across our network.
+            </p>
+        </div>
+
+        <!-- Next Step Instruction -->
+        <div class="bg-slate-800/50 p-6 rounded border border-slate-700">
+            <h3 class="text-sky-400 text-sm font-bold uppercase tracking-widest mb-2">What happens next?</h3>
+            <p class="text-slate-300 text-sm">
+                We will contact you via <span class="text-white font-bold">WhatsApp</span> or Email within 3 hours if we find a match.
+            </p>
+        </div>
+
+        <!-- Back Button -->
+        <div>
+            <a href="index.html" class="inline-block text-slate-500 hover:text-white text-sm transition border-b border-transparent hover:border-white pb-1">
+                &larr; Back to Home
+            </a>
+        </div>
+    </div>
+
+</body>
+</html>
