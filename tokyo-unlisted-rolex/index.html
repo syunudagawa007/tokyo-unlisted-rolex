@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Japan Watch Hunt | Rolex Exclusive Access</title>
+    <!-- Favicon -->
     <link rel="icon" href="favicon.png" type="image/png">
     <!-- Tailwind CSS (CDN) -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -51,13 +52,16 @@
     <!-- Header -->
     <nav class="fixed w-full z-50 glass-effect">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex items-center justify-between h-16">
+            <!-- 修正箇所: justify-center (スマホは中央) md:justify-between (PCは両端) -->
+            <div class="flex items-center justify-center md:justify-between h-16">
                 <div class="flex-shrink-0">
-                    <span class="font-header text-2xl tracking-widest text-white">
+                    <!-- 修正箇所: text-xl (スマホは少し小さく) md:text-2xl (PCは大きく) -->
+                    <span class="font-header text-xl md:text-2xl tracking-widest text-white">
                         <span class="text-red-600">TOKYO</span>WATCH<span class="text-sky-500">HUNT</span>
                     </span>
                 </div>
-                <div>
+                <!-- 修正箇所: hidden (スマホは非表示) md:block (PCは表示) -->
+                <div class="hidden md:block">
                     <a href="#request" class="bg-white text-slate-900 px-4 py-2 rounded-sm text-sm font-bold uppercase tracking-wider hover:bg-sky-50 transition">Request Stock</a>
                 </div>
             </div>
@@ -66,8 +70,8 @@
 
     <!-- Hero Section -->
     <div class="relative h-screen flex items-center justify-center">
+        <!-- 背景画像: 同じフォルダに rolex_hero.jpg を配置してください -->
         <div class="absolute inset-0 z-0">
-            <!-- rolex_hero.jpg を配置してください -->
             <img src="rolex_hero.jpg" alt="Luxury Rolex Background" class="w-full h-full object-cover opacity-60">
             <div class="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/40 to-transparent"></div>
         </div>
@@ -160,7 +164,7 @@
                     </select>
                 </div>
 
-                <!-- 滞在期間 -->
+                <!-- 滞在期間（入国日・出国日） -->
                 <div class="grid grid-cols-2 gap-4">
                     <div>
                         <label class="block text-xs uppercase tracking-wider text-slate-400 mb-1">Arrival Date <span class="text-red-500">*</span></label>
@@ -172,7 +176,7 @@
                     </div>
                 </div>
 
-                <!-- 備考欄（新規追加） -->
+                <!-- 備考欄 -->
                 <div>
                     <label class="block text-xs uppercase tracking-wider text-slate-400 mb-1">
                         Additional Requests <span class="text-[10px] font-normal text-slate-500">(Optional)</span>
@@ -181,7 +185,7 @@
                               class="w-full bg-slate-800 border border-slate-700 text-white px-4 py-3 rounded focus:outline-none focus:border-sky-500 transition"></textarea>
                 </div>
 
-                <!-- 予算 -->
+                <!-- 予算入力（厳格版） -->
                 <div class="pt-4 border-t border-slate-700">
                     <label class="block text-xs uppercase tracking-wider text-sky-400 mb-1 font-bold">Max Budget (JPY) <span class="text-red-500">*</span></label>
                     
