@@ -43,7 +43,7 @@
 
     <div class="relative h-screen flex items-center justify-center">
         <div class="absolute inset-0 z-0">
-            <!-- 画像: bag_hero.jpg -->
+            <!-- 画像ファイル名を合わせてください -->
             <img src="bag_hero.png" alt="Luxury Bag Background" class="w-full h-full object-cover opacity-60">
             <div class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent"></div>
         </div>
@@ -68,7 +68,8 @@
                 <p class="text-gray-400 text-sm">Serious inquiries only.</p>
             </div>
 
-            <form action="https://formspree.io/f/mdaddqnd" method="POST" class="space-y-6 glass-effect p-8 rounded-lg">
+            <!-- id="contactForm" が重要 -->
+            <form id="contactForm" class="space-y-6 glass-effect p-8 rounded-lg">
                 <input type="hidden" name="_next" value="https://tokyounlisted.com/thanks.html" />
                 <input type="hidden" name="_subject" value="New Bag Inquiry" />
 
@@ -106,10 +107,12 @@
                 <div class="grid grid-cols-2 gap-4">
                     <div>
                         <label class="block text-xs uppercase tracking-wider text-gray-400 mb-1">Arrival Date <span class="text-red-500">*</span></label>
+                        <!-- id="arrivalDate" が重要 -->
                         <input type="date" id="arrivalDate" name="arrival_date" required class="w-full bg-gray-900 border border-gray-700 text-white px-4 py-3 rounded focus:outline-none focus:border-hermes-orange transition appearance-none">
                     </div>
                     <div>
                         <label class="block text-xs uppercase tracking-wider text-red-400 mb-1 font-bold">Departure Date <span class="text-red-500">*</span></label>
+                        <!-- id="departureDate" が重要 -->
                         <input type="date" id="departureDate" name="departure_date" required class="w-full bg-gray-900 border border-gray-700 text-white px-4 py-3 rounded focus:outline-none focus:border-hermes-orange transition appearance-none">
                     </div>
                 </div>
@@ -121,7 +124,10 @@
 
                 <div class="pt-4 border-t border-gray-700">
                     <label class="block text-xs uppercase tracking-wider text-hermes-orange mb-1 font-bold">Max Budget (JPY) <span class="text-red-500">*</span></label>
+                    
+                    <!-- id="budgetInput" が最重要 -->
                     <input type="text" id="budgetInput" name="budget" inputmode="numeric" placeholder="e.g. 2,000,000" required class="w-full bg-gray-900 border border-hermes-orange text-white text-lg px-4 py-3 rounded focus:outline-none focus:border-hermes-orange transition">
+                    
                     <p id="budgetError" class="hidden text-red-400 text-[10px] mt-1 font-bold animate-pulse">⚠ Please enter half-width numbers only (0-9).</p>
                     <div id="currencyDisplay" class="text-sm text-orange-300 mt-2 font-mono text-right min-h-[20px]"></div>
                     <p class="text-[10px] text-gray-500 mt-1 text-right">*Market price only.</p>
@@ -134,36 +140,80 @@
     
     <footer class="bg-black py-8 text-center border-t border-gray-900"><p class="text-gray-600 text-xs">&copy; 2026 Japan Bag Hunt.</p></footer>
 
-    <!-- スクリプトは同じ -->
+    <!-- スクリプト -->
     <script>
+        // ▼▼▼ あなたのバッグ用Formspree ID ▼▼▼
+        const FORMSPREE_ENDPOINT = "https://formspree.io/f/mdaddqnd"; 
+
+        // 1. 日付制御 (IDが一致していないとここでクラッシュします)
         const arrivalInput = document.getElementById('arrivalDate');
         const departureInput = document.getElementById('departureDate');
         const today = new Date().toISOString().split('T')[0];
-        arrivalInput.setAttribute('min', today);
-        departureInput.setAttribute('min', today);
-        arrivalInput.addEventListener('change', function() {
-            departureInput.setAttribute('min', this.value);
-            if (departureInput.value && departureInput.value < this.value) departureInput.value = "";
-        });
+        if(arrivalInput && departureInput) {
+            arrivalInput.setAttribute('min', today);
+            departureInput.setAttribute('min', today);
+            arrivalInput.addEventListener('change', function() {
+                departureInput.setAttribute('min', this.value);
+                if (departureInput.value && departureInput.value < this.value) departureInput.value = "";
+            });
+        }
 
+        // 2. 予算制御 (IDが一致していないとここでクラッシュします)
         const budgetInput = document.getElementById('budgetInput');
         const currencyDisplay = document.getElementById('currencyDisplay');
         const budgetError = document.getElementById('budgetError');
         const EXCHANGE_RATE = 152; 
 
-        budgetInput.addEventListener('input', function(e) {
-            let originalValue = e.target.value;
-            let normalizedValue = originalValue.replace(/[０-９]/g, function(s) { return String.fromCharCode(s.charCodeAt(0) - 0xFEE0); });
-            if (/[^0-9,]/.test(normalizedValue)) { budgetError.classList.remove('hidden'); } else { budgetError.classList.add('hidden'); }
-            let cleanValue = normalizedValue.replace(/[^0-9]/g, '');
-            if (cleanValue) {
-                e.target.value = Number(cleanValue).toLocaleString();
-                let usdValue = Math.round(cleanValue / EXCHANGE_RATE).toLocaleString();
-                currencyDisplay.textContent = `¥${e.target.value} JPY ≈ $${usdValue} USD`;
-            } else {
-                if(originalValue === '') { e.target.value = ""; currencyDisplay.textContent = ""; budgetError.classList.add('hidden'); }
-            }
-        });
+        if(budgetInput) {
+            budgetInput.addEventListener('input', function(e) {
+                let originalValue = e.target.value;
+                let normalizedValue = originalValue.replace(/[０-９]/g, function(s) { return String.fromCharCode(s.charCodeAt(0) - 0xFEE0); });
+                if (/[^0-9,]/.test(normalizedValue)) { budgetError.classList.remove('hidden'); } else { budgetError.classList.add('hidden'); }
+                let cleanValue = normalizedValue.replace(/[^0-9]/g, '');
+                if (cleanValue) {
+                    e.target.value = Number(cleanValue).toLocaleString();
+                    let usdValue = Math.round(cleanValue / EXCHANGE_RATE).toLocaleString();
+                    currencyDisplay.textContent = `¥${e.target.value} JPY ≈ $${usdValue} USD`;
+                } else {
+                    if(originalValue === '') { e.target.value = ""; currencyDisplay.textContent = ""; budgetError.classList.add('hidden'); }
+                }
+            });
+        }
+
+        // 3. フォーム送信制御
+        const form = document.getElementById("contactForm");
+        
+        if(form) {
+            form.addEventListener("submit", async function(event) {
+                event.preventDefault(); // ここで送信を止める
+                
+                const formData = new FormData(form);
+                const submitBtn = form.querySelector("button[type='submit']");
+                const originalBtnText = submitBtn.innerText;
+                submitBtn.innerText = "Sending...";
+                submitBtn.disabled = true;
+
+                try {
+                    const response = await fetch(FORMSPREE_ENDPOINT, {
+                        method: "POST",
+                        body: formData,
+                        headers: { 'Accept': 'application/json' }
+                    });
+                    
+                    if (response.ok) {
+                        window.location.href = "https://tokyounlisted.com/thanks.html";
+                    } else {
+                        alert("Oops! There was a problem submitting your form.");
+                        submitBtn.innerText = originalBtnText;
+                        submitBtn.disabled = false;
+                    }
+                } catch (error) {
+                    alert("Network error.");
+                    submitBtn.innerText = originalBtnText;
+                    submitBtn.disabled = false;
+                }
+            });
+        }
     </script>
 </body>
 </html>
